@@ -60,10 +60,11 @@ Calendar Management: Use FullCalendar.io to manage events.
 Add additional notes about how to deploy this on a live system.
 
 # Built With
-[Django]() - The web framework used
-[Summernote]() - Rich text editor
-[FullCalendar.io]() - Interactive calendar
-[Google OAuth2]() - Authentication
+[Django](https://www.djangoproject.com/) - The web framework used
+[Summernote](https://summernote.org/) - Rich text editor
+[FullCalendar.io](https://fullcalendar.io/) - Interactive calendar
+[Google OAuth2](https://github.com/googleapis/google-api-python-client/tree/main) - Authentication
+[PostgreSQL](https://www.postgresql.org/) - Database used
 # Contributing
 Please read [CONTRIBUTING.md](link to your CONTRIBUTING.md file) for details on our code of conduct, and the process for submitting pull requests to us.
 
