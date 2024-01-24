@@ -1,0 +1,93 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    {#<script type="text/javascript">#}
+    {#        window.location.href = "https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/landing"#}
+    {#    </script>#}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-argon">
+    <!-- Space Background -->
+    {#  <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/themesSkin/skin-whitemove/skin-whitemove-2af9149bdc.min.css">#}
+
+    <title>
+        Pip - {% block title %} Open-Sourced {% endblock %}
+    </title>
+
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+
+    <!-- Nucleo Icons -->
+    <link href="{% static 'django_app/css/nucleo-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'django_app/css/nucleo-svg.css' %}" rel="stylesheet"/>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="{% static 'django_app/css/nucleo-svg.css' %}" rel="stylesheet"/>
+    <!--- STATIC SUMMERNOTE FILES -->
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>#}
+{##}
+{#    <link rel="stylesheet" href="{% static 'django_app/summernote/summernote.min.css' %}" />#}
+{#    <link rel="stylesheet" href="{% static 'django_app/summernote/summernote-lite.css' %}" />#}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <script src="'http://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Choices CSS -->
+{#    <link#}
+{#      rel="stylesheet"#}
+{#      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"#}
+{#    />#}
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="{% static 'django_app/css/argon-dashboard.css' %}" type="text/css">
+
+    <!-- Specific CSS goes HERE -->
+    {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+
+{% include "martin/sidenav.html" %}
+
+<main class="main-content border-radius-lg">
+
+    {% include "martin/navigation.html" %}
+
+    {% block content %}{% endblock content %}
+
+</main>
+
+{% include "includes/settings.html" %}
+
+{% include "includes/scripts.html" %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const darkModeSwitch = document.getElementById('dark-version');
+        if (darkModeSwitch.checked) {
+            darkMode(darkModeSwitch);
+        }
+    });
+</script>
+
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script src="{% static 'django_app/js/argon-dashboard.js' %}"></script>
+
+</body>
+
+</html>

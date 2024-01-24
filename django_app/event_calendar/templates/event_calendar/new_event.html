@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{#{% load crispy_forms_tags %}#}
+
+{% block title %} New Event {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="container">
+<form role="form" action="{% url 'new_event' %}" method="post">
+        {% csrf_token %}
+            <div class="row justify-content-center">
+                <center><h1>Submit an Event</h1></center>
+            </div>
+<div class="container">
+            <div class="form-group row">
+
+        {{ event_forms.title  }}
+        {% if event_forms.title.errors %}
+            <div class="alert alert-danger">
+                {{ event_forms.title.errors }}
+            </div>
+        {% endif %}
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+    <div class="form-group">
+        <label for="id_event_start_date">Start Date:</label>
+        {{ event_forms.event_start_date }}
+        {% if event_forms.event_start_date.errors %}
+            <div class="alert alert-danger">
+                {{ event_forms.event_start_date.errors }}
+            </div>
+        {% endif %}
+    </div>
+    </div>
+    <!-- Render 'event_end_date' field -->
+<div class="col">
+    <div class="form-group">
+        <label for="id_event_end_date">End Date:</label>
+        {{ event_forms.event_end_date  }}
+        {% if event_forms.event_end_date.errors %}
+            <div class="alert alert-danger">
+                {{ event_forms.event_end_date.errors }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+    <!-- Render 'color' field -->
+<div class="col">
+    <div class="form-group">
+        <label for="id_color">Color:</label>
+        {{ event_forms.color }}
+        {% if event_forms.color.errors %}
+            <div class="alert alert-danger">
+                {{ event_forms.color.errors }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+            {{ bodyform.foo | safe }}
+            {{ bodyform.content }}
+
+            <row class="row justify-content-center">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <hr>
+                    <center>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </center>
+                    <br>
+                </div>
+                <div class="col-4"></div>
+            </row>
+        </form>
+    </div>
+{% endblock content %}
+
+
+{% block javascripts %}
+
+    <script>
+    $('#id_foo').on('submit', function() {
+        var content = $('#id_content_summernote').summernote('code');
+        $('#id_content').val(content);
+    });
+    </script>
+
+{% endblock javascripts %}

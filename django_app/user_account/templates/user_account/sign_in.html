@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block title %} Sign In {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+    <br>
+      <main class="main-content main-content-bg mt-0">
+
+        <div class="page-header min-vh-80" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F7c%2F39%2F3c%2F7c393ccf6616f02e966093e670a96140.jpg&f=1&nofb=1&ipt=92f7c477149417fd04ba392624bbf946893a54325ceec7ed16ed49975ae380a3&ipo=images');">
+
+<span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-7">
+            <div class="card border-0 mb-0">
+              <div class="card-header bg-transparent">
+                <h5 class="text-dark text-center mt-2 mb-3">Sign in</h5>
+                <div class="btn-wrapper text-center">
+{#                  <a href="javascript:;" class="btn btn-neutral btn-icon btn-sm mb-0">#}
+{#                    <img class="w-30" src="../../../assets/img/logos/github.svg">#}
+{#                    Github#}
+{#                  </a>#}
+                  <a href="{% provider_login_url 'google'  %}?next=/coffee" class="btn btn-neutral btn-icon btn-sm mb-0">
+                    <img class="w-30" src="{% static 'django_app/img/logos/google.svg' %}">
+                    Google</span>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body px-lg-5 pt-0">
+                <div class="text-center text-muted mb-4">
+                  <small>Or sign in with credentials</small>
+                </div>
+                <form role="form" class="text-start" method="post" action="{% url 'sign_in' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" name='password' class="form-control" placeholder="Password" aria-label="Password" required>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" checked type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100 my-4 mb-2">Sign in</button>
+                  </div>
+                    </form>
+                  <div class="mb-2 position-relative text-center">
+                    <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
+                      or
+                    </p>
+                  </div>
+                  <div class="text-center">
+                      <a href="{% url 'sign_up' %}"
+                       class="nav-link text-white font-weight-bold px-0" target="_blank">
+                                            <button type="button" class="btn bg-gradient-dark w-100 mt-2 mb-4">Sign up</button>
+                    </a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </main>
+{% endblock content %}
+
+
+{% block javascripts %}
+
+{% endblock javascripts %}
