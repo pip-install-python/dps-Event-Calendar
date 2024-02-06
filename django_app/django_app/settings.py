@@ -131,9 +131,9 @@ SQUARE_ACCESS_TOKEN = 'EAAAEP8vREYzzh4ngFpprCUkV3IrG-QY97P0QTEaF3VifEsfG6ebph9AZ
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'main_street_coffee',
+        'NAME': '',
         'USER': 'postgres',
-        'PASSWORD': '12a10l1k',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': ''
     }
